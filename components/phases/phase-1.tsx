@@ -53,23 +53,23 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
 
   return (
     <div className="text-center space-y-8">
-      <div className="space-y-6">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-600 leading-snug sm:leading-normal text-center">
-          <span className="block text-2xl sm:text-3xl lg:text-4xl mb-2">🍓 🍓 🍓</span>
+      <div className="space-y-3">
+        <h1 className="-mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-red-600 leading-none text-center">
+          <span className="block text-xl sm:text-2xl lg:text-3xl mb-0.5">🍓 🍓 🍓</span>
           A TENDÊNCIA DOCE QUE PAROU O BRASIL
         </h1>
 
-        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-snug text-center">
-          <div>SE TODO MUNDO ESTÁ GANHANDO DINHEIRO COM ISSO… </div>
-          <div className="text-red-600 mt-2">POR QUE VOCÊ AINDA NÃO ESTÁ? </div>
-        </h2>
+       <h2 className="text-sm sm:text-base md:text-lg lg:text-lg font-semibold italic text-gray-800 mb-2 leading-tight text-center animate-pulse-soft">
+        <div>SE TODO MUNDO ESTÁ GANHANDO DINHEIRO COM ISSO…</div>
+        <div className="text-red-600 mt-1 italic">POR QUE VOCÊ AINDA NÃO ESTÁ?</div>
+      </h2>
 
-        <Card className="max-w-4xl mx-auto px-4 mb-4">
-          <CardContent className="p-4 text-center space-y-1">
-            <h3 className="text-base sm:text-lg font-medium text-gray-700">
+        <Card className="w-fit mx-auto mb-4">
+          <CardContent className="p-2 text-center space-y-1">
+            <h3 className="text-sm sm:text-base font-medium text-gray-700">
               🧩 Escolha o perfil que combina com você
             </h3>
-            <p className="text-sm text-gray-500">Qual tipo de empreendedor(a) você se encaixa?</p>
+            <p className="text-xs text-gray-500">Qual tipo de empreendedor(a) você se encaixa?</p>
           </CardContent>
         </Card>
 
