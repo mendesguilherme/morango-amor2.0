@@ -134,8 +134,8 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
           {/* Seção de preço com desconto fixo de 50% */}
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-4">
-              <span className="text-2xl line-through text-gray-400">R$ 95,00</span>
-              <span className="text-4xl font-bold text-green-600">R$ 47,50</span>
+              <span className="text-2xl line-through text-gray-400">R$ 55,00</span>
+              <span className="text-4xl font-bold text-green-600">R$ 27,50</span>
               <Badge className="bg-red-500">50% OFF POR MÉRITO</Badge>
             </div>
 
@@ -156,15 +156,15 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
                   <div className="text-2xl mb-2">🍓</div>
                   <p className="font-bold text-red-600">Vendendo a R$ 10,00</p>
                   <p className="text-sm text-gray-600">
-                    Apenas <span className="font-bold text-red-700">5 morangos</span>
+                    Apenas <span className="font-bold text-red-700">3 morangos</span>
                   </p>
                   <p className="text-xs text-gray-500">Tempo médio: 2-3 horas*</p>
                 </div>
                 <div className="bg-white p-3 rounded-lg border border-red-200">
                   <div className="text-2xl mb-2">🍓</div>
-                  <p className="font-bold text-red-600">Vendendo a R$ 12,00</p>
+                  <p className="font-bold text-red-600">Vendendo a R$ 14,00</p>
                   <p className="text-sm text-gray-600">
-                    Apenas <span className="font-bold text-red-700">4 morangos</span>
+                    Apenas <span className="font-bold text-red-700">2 morangos</span>
                   </p>
                   <p className="text-xs text-gray-500">Tempo médio: 1-2 horas*</p>
                 </div>
@@ -183,7 +183,7 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
                 style={{ animationDuration: "2s" }}
               >
                 <Zap className="w-6 h-6 mr-2 animate-bounce" />
-                Quero faturar com Morangos do Amor por R$ 47,50
+                Quero faturar com Morangos do Amor por R$ 27,50
               </Button>
             </div>
             <p className="text-sm text-gray-600">✅ Acesso imediato • ✅ Garantia de 7 dias • ✅ Suporte incluso</p>
@@ -314,7 +314,7 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
                 </div>
               </div>
               <div className="w-24 h-18 sm:w-32 sm:h-24 rounded-lg overflow-hidden">
-                <img src="/images/ana-perfil.png" alt="Morangos da Ana" className="w-full h-full object-cover" />
+                <img src="/images/depoimento3.jpg" alt="Morangos da Ana" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -345,7 +345,7 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
                 </div>
               </div>
               <div className="w-24 h-18 sm:w-32 sm:h-24 rounded-lg overflow-hidden">
-                <img src="/images/carlos-perfil.png" alt="Morangos do Carlos" className="w-full h-full object-cover" />
+                <img src="/images/depoimento4.jpg" alt="Morangos do Carlos" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -377,7 +377,7 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
               </div>
               <div className="w-24 h-18 sm:w-32 sm:h-24 rounded-lg overflow-hidden">
                 <img
-                  src="/images/juliana-perfil.png"
+                  src="/images/depoimento5.jpg"
                   alt="Morangos da Juliana"
                   className="w-full h-full object-cover"
                 />
