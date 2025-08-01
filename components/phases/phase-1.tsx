@@ -53,14 +53,15 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
           <div className="text-red-600 mt-2">POR QUE VOCÊ AINDA NÃO ESTÁ? </div>
         </h2>
 
-        <Card className="max-w-4xl mx-auto px-4 mb-6">
-          <CardContent className="p-6 text-center space-y-2">
-            <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-              🧩 Escolha o perfil que combina mais com você
+        <Card className="max-w-4xl mx-auto px-4 mb-4">
+          <CardContent className="p-4 text-center space-y-1">
+            <h3 className="text-base sm:text-lg font-medium text-gray-700">
+              🧩 Escolha o perfil que combina com você
             </h3>
-            <p className="text-gray-600">Qual tipo de empreendedor(a) você se encaixa?</p>
+            <p className="text-sm text-gray-500">Qual tipo de empreendedor(a) você se encaixa?</p>
           </CardContent>
         </Card>
+
 
         <div className="relative">
           {/* Desktop: Show all 4 cards */}
@@ -92,41 +93,44 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
               </Card>
             ))}
           </div>
-
-          {/* Mobile/Tablet: Pagination */}
+          
+          {/* Mobile/Tablet: Horizontal Scroll Carousel */}
           <div className="lg:hidden">
-            <div className="relative">
-              {/* Avatar cards */}
-              <div className={`grid gap-4 ${itemsPerPage === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
-                {currentAvatars.map((avatar) => (
-                  <Card
+            <div className="overflow-x-auto px-4 -mx-4">
+              <div className="flex gap-4 snap-x snap-mandatory scroll-pl-4 scroll-smooth overflow-x-scroll pb-4">
+                {avatars.map((avatar) => (
+                  <div
                     key={avatar.id}
-                    className="cursor-pointer hover:shadow-lg transition-shadow border-2 hover:border-red-300"
+                    className="flex-shrink-0 w-60 snap-center cursor-pointer transition-transform duration-300 transform hover:scale-105"
+                    onClick={() => selectAvatar(avatar.id)}
                   >
-                    <CardContent
-                      className={`p-4 text-center space-y-3 ${
-                        gameState.avatar === avatar.id ? "bg-red-50 border-2 border-red-500" : ""
+                    <Card
+                      className={`border-2 rounded-xl ${
+                        gameState.avatar === avatar.id
+                          ? "bg-red-50 border-red-500"
+                          : "hover:border-red-300"
                       }`}
-                      onClick={() => selectAvatar(avatar.id)}
                     >
-                      <div className="text-4xl">{avatar.emoji}</div>
-                      <Avatar className="w-20 h-20 mx-auto">
-                        <AvatarImage src={avatar.image || "/placeholder.svg"} alt={avatar.name} />
-                        <AvatarFallback>
-                          {avatar.name.split(" ")[0][0]}
-                          {avatar.name.split(" ")[1][0]}
-                        </AvatarFallback>
-                      </Avatar>
-                      <h3 className="font-semibold text-lg">{avatar.name}</h3>
-                      <p className="text-xs text-gray-600 font-medium">{avatar.profile}</p>
-                      <p className="text-xs text-gray-500 leading-relaxed">{avatar.description}</p>
-                    </CardContent>
-                  </Card>
+                      <CardContent className="p-4 text-center space-y-3">
+                        <div className="text-4xl">{avatar.emoji}</div>
+                        <Avatar className="w-20 h-20 mx-auto">
+                          <AvatarImage src={avatar.image || "/placeholder.svg"} alt={avatar.name} />
+                          <AvatarFallback>
+                            {avatar.name.split(" ")[0][0]}
+                            {avatar.name.split(" ")[1][0]}
+                          </AvatarFallback>
+                        </Avatar>
+                        <h3 className="font-semibold text-lg">{avatar.name}</h3>
+                        <p className="text-xs text-gray-600 font-medium">{avatar.profile}</p>
+                        <p className="text-xs text-gray-500 leading-relaxed">{avatar.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
                 ))}
               </div>
             </div>
 
-            {/* Pagination dots */}
+            {/* Pagination dots (opcional) */}
             {totalPages > 1 && (
               <div className="flex justify-center gap-2 mt-6">
                 {Array.from({ length: totalPages }, (_, index) => (
@@ -141,13 +145,13 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
               </div>
             )}
 
-            {/* Page indicator */}
             {totalPages > 1 && (
               <p className="text-center text-xs text-gray-500 mt-2">
                 {currentPage + 1} de {totalPages}
               </p>
             )}
           </div>
+
         </div>
 
         <Card className="max-w-2xl mx-auto px-4 border-2 border-red-300 shadow-xl">
