@@ -43,10 +43,12 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-6">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-600">
-          🍓 A TENDÊNCIA DOCE QUE PAROU O BRASIL 🍓
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-600 leading-snug sm:leading-normal text-center">
+          <span className="block text-2xl sm:text-3xl lg:text-4xl mb-2">🍓 🍓 🍓</span>
+          A TENDÊNCIA DOCE QUE PAROU O BRASIL
         </h1>
-        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4">
+
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-snug text-center">
           <div>SE TODO MUNDO ESTÁ GANHANDO DINHEIRO COM ISSO… </div>
           <div className="text-red-600 mt-2">POR QUE VOCÊ AINDA NÃO ESTÁ? </div>
         </h2>
@@ -66,14 +68,15 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
             {avatars.map((avatar) => (
               <Card
                 key={avatar.id}
-                className="cursor-pointer hover:shadow-lg transition-shadow border-2 hover:border-red-300"
+                onClick={() => selectAvatar(avatar.id)}
+                className={`cursor-pointer hover:shadow-lg transition-shadow border-2 ${
+                  gameState.avatar === avatar.id
+                    ? "bg-red-50 border-red-500"
+                    : "hover:border-red-300"
+                }`}
               >
-                <CardContent
-                  className={`p-4 text-center space-y-3 ${
-                    gameState.avatar === avatar.id ? "bg-red-50 border-2 border-red-500" : ""
-                  }`}
-                  onClick={() => selectAvatar(avatar.id)}
-                >
+                <CardContent className="p-4 text-center space-y-3">
+
                   <div className="text-4xl">{avatar.emoji}</div>
                   <Avatar className="w-20 h-20 mx-auto">
                     <AvatarImage src={avatar.image || "/placeholder.svg"} alt={avatar.name} />
@@ -147,6 +150,27 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
           </div>
         </div>
 
+        <Card className="max-w-2xl mx-auto px-4 border-2 border-red-300 shadow-xl">
+          <CardContent className="p-6 space-y-4">
+            <div className="text-center">
+              <div className="text-4xl mb-4 animate-bounce">🎮</div>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-red-600 mb-4">ACEITE O DESAFIO AGORA!</h3>
+            </div>
+            <Button
+              onClick={startChallenge}
+              disabled={!gameState.avatar}
+              className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-base sm:text-lg lg:text-xl py-3 sm:py-4 font-bold transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            >
+              COMEÇAR AGORA ➡️
+            </Button>
+            <div className="text-center">
+              <p className="text-sm text-gray-600 animate-pulse">
+                ⏰ <span className="font-bold">2.847 pessoas testaram hoje!</span> Sua vez chegou!
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Microrecompensas Section */}
         <div className="max-w-4xl mx-auto px-4 mb-8">
           <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-lg">
@@ -197,28 +221,7 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
               </p>
             </div>
           </div>
-        </div>
-
-        <Card className="max-w-2xl mx-auto px-4 border-2 border-red-300 shadow-xl">
-          <CardContent className="p-6 space-y-4">
-            <div className="text-center">
-              <div className="text-4xl mb-4 animate-bounce">🎮</div>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-red-600 mb-4">ACEITE O DESAFIO AGORA!</h3>
-            </div>
-            <Button
-              onClick={startChallenge}
-              disabled={!gameState.avatar}
-              className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-base sm:text-lg lg:text-xl py-3 sm:py-4 font-bold transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              COMEÇAR AGORA ➡️
-            </Button>
-            <div className="text-center">
-              <p className="text-sm text-gray-600 animate-pulse">
-                ⏰ <span className="font-bold">2.847 pessoas testaram hoje!</span> Sua vez chegou!
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        </div>        
       </div>
 
       <Footer />
