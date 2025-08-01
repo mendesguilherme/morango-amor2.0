@@ -121,7 +121,7 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
                     onClick={() => handleAvatarClick(avatar.id)}
                   >
                     <Card
-                      className={`h-[360px] border-2 rounded-xl overflow-hidden ${
+                      className={`h-[300px] border-2 rounded-xl overflow-hidden ${
                         gameState.avatar === avatar.id
                           ? "bg-red-50 border-red-500"
                           : "hover:border-red-300"
