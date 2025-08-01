@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef  } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import type { PhaseProps } from "@/types/game-state"
 import { avatars } from "@/data/constants"
 import { Footer } from "@/components/footer"
+import type { RefCallback } from "react"
 
 export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
   const [currentPage, setCurrentPage] = useState(0)
@@ -18,6 +19,16 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
   const startChallenge = () => {
     setGameState((prev) => ({ ...prev, phase: 2 }))
     window.scrollTo(0, 0)
+  }
+
+  const avatarRefs = useRef<Record<string, HTMLDivElement | null>>({})
+
+  const handleAvatarClick = (id: string) => {
+    selectAvatar(id)
+    const ref = avatarRefs.current[id]
+    if (ref) {
+      ref.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+    }
   }
 
   // Calculate items per page based on screen size
@@ -97,21 +108,26 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
           {/* Mobile/Tablet: Horizontal Scroll Carousel */}
           <div className="lg:hidden">
             <div className="overflow-x-auto px-4 -mx-4">
-              <div className="flex gap-4 snap-x snap-mandatory scroll-pl-4 scroll-smooth overflow-x-scroll pb-4">
+              <div className="flex gap-4 snap-x snap-mandatory scroll-smooth overflow-x-scroll pb-4">
                 {avatars.map((avatar) => (
                   <div
                     key={avatar.id}
-                    className="flex-shrink-0 w-60 snap-center cursor-pointer transition-transform duration-300 transform hover:scale-105"
-                    onClick={() => selectAvatar(avatar.id)}
+                    ref={
+                      ((el: HTMLDivElement | null) => {
+                        avatarRefs.current[avatar.id] = el
+                      }) as RefCallback<HTMLDivElement>
+                    }
+                    className="flex-shrink-0 w-64 snap-center cursor-pointer transition duration-300 hover:brightness-105"
+                    onClick={() => handleAvatarClick(avatar.id)}
                   >
                     <Card
-                      className={`border-2 rounded-xl ${
+                      className={`h-[360px] border-2 rounded-xl overflow-hidden ${
                         gameState.avatar === avatar.id
                           ? "bg-red-50 border-red-500"
                           : "hover:border-red-300"
                       }`}
                     >
-                      <CardContent className="p-4 text-center space-y-3">
+                      <CardContent className="p-0 text-center space-y-2 h-full flex flex-col justify-start pt-2">
                         <div className="text-4xl">{avatar.emoji}</div>
                         <Avatar className="w-20 h-20 mx-auto">
                           <AvatarImage src={avatar.image || "/placeholder.svg"} alt={avatar.name} />
@@ -120,37 +136,22 @@ export const Phase1 = ({ gameState, setGameState }: PhaseProps) => {
                             {avatar.name.split(" ")[1][0]}
                           </AvatarFallback>
                         </Avatar>
-                        <h3 className="font-semibold text-lg">{avatar.name}</h3>
+                        <h3 className="font-semibold text-base">{avatar.name}</h3>
                         <p className="text-xs text-gray-600 font-medium">{avatar.profile}</p>
-                        <p className="text-xs text-gray-500 leading-relaxed">{avatar.description}</p>
+                        <p className="text-xs text-gray-500 leading-relaxed line-clamp-4 px-2">
+                          {avatar.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Pagination dots (opcional) */}
-            {totalPages > 1 && (
-              <div className="flex justify-center gap-2 mt-6">
-                {Array.from({ length: totalPages }, (_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToPage(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      currentPage === index ? "bg-red-500 w-8" : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
-
-            {totalPages > 1 && (
-              <p className="text-center text-xs text-gray-500 mt-2">
-                {currentPage + 1} de {totalPages}
-              </p>
-            )}
           </div>
+
+
+
+
 
         </div>
 
