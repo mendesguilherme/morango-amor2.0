@@ -4,9 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Morango do Amor',
+  description: 'Ganhe até 10 mil reais com morangos do amor!'  
 }
 
 export default function RootLayout({
