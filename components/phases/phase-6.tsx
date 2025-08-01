@@ -62,10 +62,10 @@ export const Phase6 = ({ gameState, setGameState }: PhaseProps) => {
 
           <Button
             onClick={showOffer}
-            className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-base sm:text-lg lg:text-xl py-3 sm:py-4 hover:from-yellow-500 hover:to-orange-600"
+            className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold text-sm sm:text-base md:text-lg py-5 px-4 rounded-xl shadow-lg transition-all duration-200 text-center break-words whitespace-normal flex items-center justify-center gap-2 animate-pulse"
           >
-            <Gift className="w-5 h-5 mr-2" />
-            Desbloquear agora o plano completo
+            <Gift className="w-5 h-5" />
+            <span className="text-center">DESBLOQUEAR AGORA O PLANO COMPLETO</span>
           </Button>
         </CardContent>
       </Card>

@@ -268,16 +268,12 @@ export const Phase3 = ({ gameState, setGameState, isProducing, progressPercentag
 
                 <Button
                   onClick={completeProduction}
-                  className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-black font-bold text-base sm:text-lg lg:text-xl py-3 sm:py-4 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 border-2 border-yellow-300"
+                  className="w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-black font-bold text-sm sm:text-base md:text-lg py-5 px-4 rounded-xl shadow-lg transition-all duration-200 border-2 border-yellow-300 text-center break-words whitespace-normal"
                 >
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="text-2xl animate-bounce">💰</div>
-                    <span>Simular a comercialização dos 12 morangos</span>
-                    <div className="text-2xl animate-bounce" style={{ animationDelay: "0.3s" }}>
-                      🏪
-                    </div>
-                  </div>
+                  SIMULAR VENDA DOS 12 MORANGOS
                 </Button>
+
+
               </div>
             </>
           )}

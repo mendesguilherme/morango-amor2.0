@@ -202,7 +202,7 @@ export const Phase2 = ({
             <Button
               onClick={buyIngredients}
               disabled={Object.keys(ingredientChoices!).length !== ingredientOptions.length}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed text-center break-words whitespace-normal py-3 leading-snug"
             >
               🎯{" "}
               {Object.keys(ingredientChoices!).length === ingredientOptions.length

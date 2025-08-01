@@ -179,11 +179,13 @@ export const Phase7 = ({ gameState, onlineCount }: PhaseProps) => {
               </div>
 
               <Button
-                className="hover:bg-[#ff8d00] text-white font-bold text-base sm:text-lg lg:text-xl py-3 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl px-1 w-full sm:py-3 h-auto animate-pulse bg-[#ff8d00]"
+                className="w-full bg-[#ff8d00] hover:bg-[#ff8d00]/90 text-white font-bold text-sm sm:text-base md:text-lg py-5 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center break-words whitespace-normal flex items-center justify-center gap-2 animate-pulse"
                 style={{ animationDuration: "2s" }}
               >
-                <Zap className="w-6 h-6 mr-2 animate-bounce" />
-                Quero faturar com Morangos do Amor por R$ 27,50
+                <Zap className="w-6 h-6" />
+                <span className="text-center leading-snug">
+                  COMEÇAR A FATURAR POR APENAS R$ 27,50
+                </span>
               </Button>
             </div>
             <p className="text-sm text-gray-600">✅ Acesso imediato • ✅ Garantia de 7 dias • ✅ Suporte incluso</p>

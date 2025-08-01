@@ -165,19 +165,14 @@ export const Phase4 = ({ gameState, setGameState }: PhaseProps) => {
               </p>
             </div>
 
-            <Button
+           <Button
               onClick={confirmPrice}
               disabled={!selectedOption}
-              className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-base sm:text-lg lg:text-xl py-3 sm:py-4 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-sm sm:text-base md:text-lg py-5 px-4 rounded-xl shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-center break-words whitespace-normal animate-pulse"
             >
-              <div className="flex items-center justify-center gap-2">
-                <div className="text-2xl animate-bounce">💰</div>
-                <span>Confirmar Estratégia e Simular Vendas</span>
-                <div className="text-2xl animate-bounce" style={{ animationDelay: "0.3s" }}>
-                  📈
-                </div>
-              </div>
+              CONFIRMAR ESTRATÉGIA E SIMULAR VENDAS
             </Button>
+
           </CardContent>
         </Card>
       )}
